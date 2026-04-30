@@ -27,7 +27,7 @@ color:white;
 overflow-x:hidden;
 }
 
-/* พื้นหลังลึกลับ */
+/* พื้นหลังดูดวง */
 .bg-effects{
 position:fixed;
 top:0;
@@ -38,21 +38,19 @@ z-index:0;
 overflow:hidden;
 }
 
-/* ลูกแก้ว */
 .crystal{
 position:absolute;
 width:220px;
 height:220px;
 border-radius:50%;
 background:radial-gradient(circle,#c084fc,#581c87,#000);
-box-shadow:0 0 60px rgba(192,132,252,0.45);
-top:18%;
-left:10%;
+box-shadow:0 0 60px rgba(192,132,252,.45);
+top:15%;
+left:8%;
 animation:float 6s ease-in-out infinite;
 opacity:.45;
 }
 
-/* วงเวท */
 .circle{
 position:absolute;
 width:350px;
@@ -60,20 +58,10 @@ height:350px;
 border:2px solid rgba(255,255,255,.12);
 border-radius:50%;
 top:50%;
-right:10%;
+right:8%;
 animation:spin 35s linear infinite;
 }
 
-.circle::before{
-content:"✦ ✧ ✦ ✧ ✦ ✧";
-position:absolute;
-top:45%;
-left:15%;
-font-size:26px;
-color:rgba(255,255,255,.15);
-}
-
-/* ไพ่ */
 .card{
 position:absolute;
 font-size:90px;
@@ -81,11 +69,10 @@ opacity:.08;
 animation:float 7s ease-in-out infinite;
 }
 
-.c1{top:12%;right:20%;}
-.c2{bottom:20%;left:20%;}
-.c3{top:55%;left:45%;}
+.c1{top:10%;right:18%;}
+.c2{bottom:18%;left:18%;}
+.c3{top:55%;left:42%;}
 
-/* พระจันทร์ */
 .moon{
 position:absolute;
 font-size:120px;
@@ -102,7 +89,7 @@ to{transform:rotate(360deg);}
 
 @keyframes float{
 0%,100%{transform:translateY(0);}
-50%{transform:translateY(-20px);}
+50%{transform:translateY(-18px);}
 }
 
 .content{
@@ -132,16 +119,20 @@ padding:35px;
 
 <div class="content">
 
+<!-- หน้าแรก -->
 <section class="min-h-screen flex flex-col justify-center items-center text-center px-6">
-<h1 class="text-6xl font-bold text-purple-300 mb-5">🔮 Ask Nine</h1>
+
+<h1 class="text-6xl font-bold text-purple-300 mb-5">
+🔮 Ask Nine
+</h1>
 
 <p class="text-2xl mb-4">
 สวัสดีครับคุณลูกค้า ✨
 </p>
 
 <p class="max-w-xl text-gray-300 mb-8">
-ยินดีต้อนรับสู่ Ask Nine  
-พื้นที่สำหรับการดูดวง การเปิดใจ และการพูดคุยแบบส่วนตัว
+สามารถดูรายละเอียดบริการผ่านด้านล่างได้เลย  
+หากสนใจสามารถกด Instagram หรือ LINE เพื่อสอบถามเพิ่มเติมได้
 </p>
 
 <a href="#detail">
@@ -149,9 +140,12 @@ padding:35px;
 ดูรายละเอียดเพิ่มเติม
 </button>
 </a>
+
 </section>
 
+<!-- รายละเอียด -->
 <section id="detail" class="py-20 px-6">
+
 <div class="max-w-4xl mx-auto box text-center">
 
 <h2 class="text-4xl font-bold text-pink-300 mb-8">
@@ -166,6 +160,10 @@ padding:35px;
 <p>3 คำถาม — 39 บาท</p>
 <p>5 คำถาม — 59 บาท</p>
 
+<p class="mt-4 text-gray-300">
+สามารถสอบถามรายละเอียดเพิ่มเติมก่อนตัดสินใจใช้บริการได้
+</p>
+
 <div class="mt-10">
 <h3 class="text-2xl text-pink-300 mb-4">
 💭 เปิดใจ / ระบายอารมณ์
@@ -174,22 +172,34 @@ padding:35px;
 <p>10 นาที — 19 บาท</p>
 <p>30 นาที — 29 บาท</p>
 <p>60 นาที — 89 บาท</p>
+
+<p class="mt-4 text-gray-300">
+สำหรับลูกค้าที่ต้องการพูดคุย ระบายความรู้สึก
+หรือปรึกษาเรื่องส่วนตัว
+</p>
 </div>
 
 <div class="mt-10">
-<p>⏰ เปิดทุกวัน 09:00 - 19:00 น.</p>
+<h3 class="text-xl text-purple-300 mb-3">
+⏰ เวลาให้บริการ
+</h3>
+
+<p>เปิดทุกวัน</p>
+<p>09:00 - 19:00 น.</p>
 </div>
 
 <div class="mt-8 text-gray-300 space-y-3">
-<p>สามารถสอบถามคิวว่างได้</p>
-<p>สามารถขอดูรีวิวจากลูกค้าท่านอื่นได้</p>
-<p>หากตอบช้า อาจอยู่ระหว่างให้บริการ</p>
-<p>รักษาความเป็นส่วนตัวของลูกค้าทุกท่าน</p>
+<p>ลูกค้าสามารถทักมาสอบถามคิวว่างได้</p>
+<p>ทางร้านจะจัดลำดับคิวตามเวลาที่สะดวก</p>
+<p>ลูกค้าสามารถทักมาขอดูรีวิวจากลูกค้าท่านอื่นได้ก่อน</p>
+<p>หากตอบกลับช้า อาจอยู่ระหว่างให้บริการลูกค้าท่านอื่น</p>
+<p>บริการแบบส่วนตัว รักษาความเป็นส่วนตัวของลูกค้าทุกท่าน</p>
 </div>
 
+<!-- ติดต่อ -->
 <div class="mt-12 flex flex-col md:flex-row justify-center gap-4">
 
-<a href="https://www.instagram.com/n__.awat" target="_blank">
+<a href="https://www.instagram.com/ask._nine?igsh=MWtkanQwb2Y3emptZA==" target="_blank">
 <button class="bg-pink-500 hover:bg-pink-400 px-8 py-4 rounded-xl font-bold">
 Instagram
 </button>
@@ -204,6 +214,7 @@ LINE
 </div>
 
 </div>
+
 </section>
 
 </div>
