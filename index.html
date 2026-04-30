@@ -15,166 +15,195 @@
 <script src="https://cdn.tailwindcss.com"></script>
 
 <style>
+html{
+scroll-behavior:smooth;
+}
+
 body{
-    margin:0;
-    font-family:sans-serif;
-    background:radial-gradient(circle at center,#581c87 0%,#1e1b4b 40%,#000 100%);
-    color:white;
-    overflow-x:hidden;
-    scroll-behavior:smooth;
+margin:0;
+font-family:Arial,sans-serif;
+background:radial-gradient(circle at center,#2a0845 0%,#120018 45%,#000 100%);
+color:white;
+overflow-x:hidden;
 }
 
-/* ดาวเคลื่อนไหว */
-.stars,.stars2,.stars3{
-    position:fixed;
-    width:100%;
-    height:100%;
-    top:0;
-    left:0;
-    z-index:0;
-    background-repeat:repeat;
+/* พื้นหลังลึกลับ */
+.bg-effects{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:0;
+overflow:hidden;
 }
 
-.stars{
-    background-image:radial-gradient(white 1px,transparent 1px);
-    background-size:18px 18px;
-    animation:move 14s linear infinite;
-    opacity:.45;
+/* ลูกแก้ว */
+.crystal{
+position:absolute;
+width:220px;
+height:220px;
+border-radius:50%;
+background:radial-gradient(circle,#c084fc,#581c87,#000);
+box-shadow:0 0 60px rgba(192,132,252,0.45);
+top:18%;
+left:10%;
+animation:float 6s ease-in-out infinite;
+opacity:.45;
 }
 
-.stars2{
-    background-image:radial-gradient(#d8b4fe 1px,transparent 1px);
-    background-size:35px 35px;
-    animation:move 22s linear infinite;
-    opacity:.25;
+/* วงเวท */
+.circle{
+position:absolute;
+width:350px;
+height:350px;
+border:2px solid rgba(255,255,255,.12);
+border-radius:50%;
+top:50%;
+right:10%;
+animation:spin 35s linear infinite;
 }
 
-.stars3{
-    background-image:radial-gradient(#f9a8d4 1px,transparent 1px);
-    background-size:55px 55px;
-    animation:move 30s linear infinite;
-    opacity:.18;
+.circle::before{
+content:"✦ ✧ ✦ ✧ ✦ ✧";
+position:absolute;
+top:45%;
+left:15%;
+font-size:26px;
+color:rgba(255,255,255,.15);
 }
 
-@keyframes move{
-    from{transform:translateY(0);}
-    to{transform:translateY(-300px);}
-}
-
+/* ไพ่ */
 .card{
-    background:rgba(0,0,0,.45);
-    backdrop-filter:blur(10px);
+position:absolute;
+font-size:90px;
+opacity:.08;
+animation:float 7s ease-in-out infinite;
+}
+
+.c1{top:12%;right:20%;}
+.c2{bottom:20%;left:20%;}
+.c3{top:55%;left:45%;}
+
+/* พระจันทร์ */
+.moon{
+position:absolute;
+font-size:120px;
+top:8%;
+right:8%;
+opacity:.15;
+animation:float 5s ease-in-out infinite;
+}
+
+@keyframes spin{
+from{transform:rotate(0deg);}
+to{transform:rotate(360deg);}
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-20px);}
+}
+
+.content{
+position:relative;
+z-index:10;
+}
+
+.box{
+background:rgba(0,0,0,.55);
+backdrop-filter:blur(8px);
+border-radius:24px;
+padding:35px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="stars"></div>
-<div class="stars2"></div>
-<div class="stars3"></div>
+<div class="bg-effects">
+<div class="crystal"></div>
+<div class="circle"></div>
+<div class="moon">🌙</div>
+<div class="card c1">🃏</div>
+<div class="card c2">🔮</div>
+<div class="card c3">♈</div>
+</div>
 
-<div class="relative z-10">
+<div class="content">
 
-<!-- หน้าเปิด -->
-<section class="h-screen flex items-center justify-center text-center px-6">
-<div>
+<section class="min-h-screen flex flex-col justify-center items-center text-center px-6">
 <h1 class="text-6xl font-bold text-purple-300 mb-5">🔮 Ask Nine</h1>
 
 <p class="text-2xl mb-4">
 สวัสดีครับคุณลูกค้า ✨
 </p>
 
-<p class="text-gray-300 max-w-xl mx-auto mb-8 leading-relaxed">
-ยินดีต้อนรับเข้าสู่ Ask Nine  
-พื้นที่สำหรับการดูดวง การพูดคุย และการเปิดใจอย่างเป็นส่วนตัว  
-สามารถดูรายละเอียดบริการด้านล่างได้เลย
+<p class="max-w-xl text-gray-300 mb-8">
+ยินดีต้อนรับสู่ Ask Nine  
+พื้นที่สำหรับการดูดวง การเปิดใจ และการพูดคุยแบบส่วนตัว
 </p>
 
-<a href="#details">
-<button class="bg-gradient-to-r from-pink-500 to-purple-500 px-8 py-4 rounded-2xl text-lg font-bold hover:scale-105 transition">
+<a href="#detail">
+<button class="bg-purple-600 hover:bg-purple-500 px-8 py-4 rounded-xl font-bold">
 ดูรายละเอียดเพิ่มเติม
 </button>
 </a>
-
-</div>
 </section>
 
-<!-- รายละเอียด -->
-<section id="details" class="pb-24">
+<section id="detail" class="py-20 px-6">
+<div class="max-w-4xl mx-auto box text-center">
 
-<div class="text-center mb-10">
-<h2 class="text-4xl font-bold text-pink-300">
+<h2 class="text-4xl font-bold text-pink-300 mb-8">
 รายละเอียดบริการ
 </h2>
-</div>
 
-<div class="card rounded-3xl mx-4 md:mx-20 p-10 text-center border border-purple-500/30">
-
-<!-- ดูดวง -->
-<h3 class="text-2xl text-purple-300 mb-5">🔮 ดูดวงออนไลน์</h3>
+<h3 class="text-2xl text-purple-300 mb-4">
+🔮 ดูดวงออนไลน์
+</h3>
 
 <p>1 คำถาม — 9 บาท</p>
 <p>3 คำถาม — 39 บาท</p>
 <p>5 คำถาม — 59 บาท</p>
 
-<!-- เปิดใจ -->
 <div class="mt-10">
-<h3 class="text-2xl text-pink-300 mb-5">💭 เปิดใจ / ระบายอารมณ์</h3>
+<h3 class="text-2xl text-pink-300 mb-4">
+💭 เปิดใจ / ระบายอารมณ์
+</h3>
 
 <p>10 นาที — 19 บาท</p>
 <p>30 นาที — 29 บาท</p>
 <p>60 นาที — 89 บาท</p>
-
-<p class="text-sm text-gray-300 mt-4">
-สำหรับลูกค้าที่ต้องการพูดคุย ระบายความรู้สึก
-หรือปรึกษาเรื่องส่วนตัวแบบเป็นกันเอง
-</p>
 </div>
 
-<!-- เวลา -->
 <div class="mt-10">
-<h3 class="text-xl text-purple-300 mb-3">⏰ เวลาให้บริการ</h3>
-<p>09:00 - 19:00 น.</p>
+<p>⏰ เปิดทุกวัน 09:00 - 19:00 น.</p>
 </div>
 
-<!-- รีวิว -->
-<div class="mt-8">
-<p>
-ลูกค้าสามารถทักมาขอดูรีวิวจากลูกค้าท่านอื่นได้ก่อน
-เพื่อประกอบการตัดสินใจ
-</p>
+<div class="mt-8 text-gray-300 space-y-3">
+<p>สามารถสอบถามคิวว่างได้</p>
+<p>สามารถขอดูรีวิวจากลูกค้าท่านอื่นได้</p>
+<p>หากตอบช้า อาจอยู่ระหว่างให้บริการ</p>
+<p>รักษาความเป็นส่วนตัวของลูกค้าทุกท่าน</p>
 </div>
 
-<div class="mt-4">
-<p>
-หากตอบกลับช้า อาจอยู่ระหว่างให้บริการลูกค้าท่านอื่น
-</p>
-</div>
-
-</div>
-
-<!-- ติดต่อ -->
-<div class="text-center mt-16">
-<h2 class="text-3xl mb-8 text-purple-300">ช่องทางติดต่อ</h2>
-
-<div class="flex flex-col md:flex-row justify-center gap-5">
+<div class="mt-12 flex flex-col md:flex-row justify-center gap-4">
 
 <a href="https://www.instagram.com/n__.awat" target="_blank">
-<button class="bg-gradient-to-r from-pink-500 to-purple-500 px-8 py-4 rounded-2xl text-lg font-bold hover:scale-105 transition">
+<button class="bg-pink-500 hover:bg-pink-400 px-8 py-4 rounded-xl font-bold">
 Instagram
 </button>
 </a>
 
 <a href="https://line.me/ti/p/Gkz1jPKVWg" target="_blank">
-<button class="bg-gradient-to-r from-green-500 to-emerald-500 px-8 py-4 rounded-2xl text-lg font-bold hover:scale-105 transition">
+<button class="bg-green-500 hover:bg-green-400 px-8 py-4 rounded-xl font-bold">
 LINE
 </button>
 </a>
 
 </div>
-</div>
 
+</div>
 </section>
 
 </div>
